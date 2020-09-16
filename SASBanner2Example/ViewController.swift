@@ -17,9 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         bannerView.baseVC = self
-         bannerView.images = dummyImgs
-         bannerView.imgFit = .scaleAspectFit
+        bannerView.congifBanner(images: dummyImgs, baseVC: self, imageFit: .scaleAspectFill)
     }
 
     @IBAction func btnAction() {

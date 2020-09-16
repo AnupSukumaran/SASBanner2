@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScrollViewBlock" customModule="SASBanner" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScrollViewBlock" customModule="SASBanner2" customModuleProvider="target">
             <connections>
                 <outlet property="pageControl" destination="uGn-Fm-XHq" id="UdV-Ft-DZh"/>
             </connections>
@@ -23,22 +23,9 @@
                     <color key="pageIndicatorTintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="currentPageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </pageControl>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkI-Lu-tfC">
-                    <rect key="frame" x="268" y="45" width="120" height="69"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="69" id="GOL-Ff-Ktz"/>
-                        <constraint firstAttribute="width" constant="120" id="Jb6-VI-5UR"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="manualScrollView:" destination="-1" eventType="touchUpInside" id="O5p-69-rlv"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="KkI-Lu-tfC" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="1" id="2Bz-QF-QiE"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KkI-Lu-tfC" secondAttribute="trailing" constant="20" id="71Q-du-mNq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uGn-Fm-XHq" secondAttribute="bottom" constant="15" id="Oar-vt-nsH"/>
                 <constraint firstItem="uGn-Fm-XHq" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Oqe-ep-M7D"/>
             </constraints>
@@ -46,10 +33,5 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="121.73913043478262" y="176.45089285714286"/>
         </view>
-        <tapGestureRecognizer id="Q0e-Q4-Lyv">
-            <connections>
-                <action selector="tapGesture:" destination="-1" id="oKu-H6-75L"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
 </document>

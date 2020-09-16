@@ -24,20 +24,17 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         return view
     }
 
-    func xibSetup(bgColor: UIColor = .white, hidePageControlDots: Bool) {
+    func xibSetup(bgColor: UIColor = .white) {
         
         guard let view = loadViewFromNib(bgColor) else {return }
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    
         addSubview(view)
         contentView = view
         
-        pageControl.isHidden = false
-        
     }
     
-    func settingPageViewController(baseVC: UIViewController) {
+    func settingPageViewController(baseVC: UIViewController, imageContentFit: UIImageView.ContentMode) {
        
         let bundle = Bundle(for: type(of: self))
         var pageVC = PageSlideViewController(nibName: "PageSlideViewController", bundle: bundle)
@@ -47,6 +44,7 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         if let imgs = images {
             pageVC.images = imgs.compactMap{$0}
         }
+        pageVC.imageContentFit = imageContentFit
         pageControl.isHidden = false
         baseVC.view.bringSubviewToFront(pageControl)
 
@@ -59,11 +57,8 @@ extension ScrollViewBlock: UIScrollViewDelegate {
     }
     
     func pageControlSetup() {
-        print("images?.count ?? 0 = \(images?.count ?? 0)")
-        print("pageControl = \(pageControl.isHidden)")
         pageControl.numberOfPages = images?.count ?? 0
         pageControl.currentPage = 0
-       
     }
 
     func pageControlSetupForViews(views: [UIView]) {
@@ -77,14 +72,4 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         pageControl.currentPage = Int(pageIndex)
     }
     
-}
-
-extension ScrollViewBlock:  WKUIDelegate, WKNavigationDelegate {
-    public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        delegate.startLoading()
-    }
-    
-    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        delegate.stopLoading()
-    }
 }
