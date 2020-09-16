@@ -23,20 +23,6 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         view.backgroundColor = bgColor
         return view
     }
-    
-    func loadPageSlideViewController(_ bgColor: UIColor = .white, baseVC: UIViewController)  -> UIView? {
-
-        let bundle = Bundle(for: type(of: self))
-        let pageVC = PageSlideViewController(nibName: "PageSlideViewController", bundle: bundle)
-        baseVC.addChild(baseVC)
-        if let imgs = self.images {
-            pageVC.images = imgs.compactMap{$0}
-        }
-
-        return pageVC.view
-       
-    }
-    
 
     func xibSetup(bgColor: UIColor = .white, hidePageControlDots: Bool) {
         
@@ -69,12 +55,9 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         contentView!.addSubview(pageVC.view)
         
         pageVC.didMove(toParent: baseVC)
-      
-       
+        self.pageVC = pageVC
     }
     
-
-
     func pageControlSetup() {
         print("images?.count ?? 0 = \(images?.count ?? 0)")
         print("pageControl = \(pageControl.isHidden)")
@@ -88,44 +71,6 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         pageControl.currentPage = 0
         bringSubviewToFront(pageControl)
     }
-
-
-    
-    func setupScrollViewForView(views: [UIView]) {
-        scrollView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
-        scrollView.contentSize = CGSize(width: frame.width * CGFloat(views.count), height: frame.height)
-        scrollView.isPagingEnabled = true
-
-        for i in 0 ..< views.count {
-            views[i].frame = CGRect(x: frame.width * CGFloat(i), y: 0, width: frame.width, height: frame.height)
-            scrollView.addSubview(views[i])
-        }
-    }
-
-    
-
-    public func manualScrollingAction() {
-
-        let maxScrollContentWidth = scrollView.contentSize.width
-        
-        let scrollFrameWidth = scrollView.frame.size.width
-        let scrollXAxisContentOffset = scrollView.contentOffset.x
-        let viewWidth = frame.width
-        
-        let changingScrollWidth = (scrollFrameWidth + scrollXAxisContentOffset + viewWidth)
-
-        (maxScrollContentWidth > changingScrollWidth) ?
-        (scrollView.setContentOffset(CGPoint(x: scrollXAxisContentOffset + viewWidth, y: 0), animated: true)) :
-        (scrollView.setContentOffset(CGPoint(x: (maxScrollContentWidth - scrollFrameWidth), y: 0), animated: true))
-
-    }
-    
-    public func forceScrollingTo(index: Int) {
-        let scrollXAxisContentOffset = scrollView.contentOffset.x
-        let viewWidth = frame.width * CGFloat(index)
-        (scrollView.setContentOffset(CGPoint(x: scrollXAxisContentOffset + viewWidth , y: 0), animated: true))
-    }
-
 
     func actionAfterScrolling(_ scrollView: UIScrollView, pageControl: UIPageControl, view: UIView) {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)

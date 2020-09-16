@@ -16,17 +16,13 @@ import UIKit
 }
 
 public class ScrollViewBlock: UIView {
-    
-    @IBOutlet public weak var scrollView: UIScrollView!
+  
     @IBOutlet public weak var pageControl: UIPageControl!
     @IBOutlet public weak var delegate: ScrollViewBlockDelegate!
-   // @IBOutlet public weak var baseView: UIView!
- //   public var bannerView = BannerViewModel()
-   
+
+    public var pageVC: PageSlideViewController!
     public var baseVC: UIViewController!
-    
     public var viewBGColor: UIColor = .green
-    
     public var hidePageControlDots: Bool = false {
         didSet {
              //xibSetup(bgColor: viewBGColor, hidePageControlDots: hidePageControlDots)
@@ -59,8 +55,6 @@ public class ScrollViewBlock: UIView {
          //  settingWebViews(webViewBGC: webViewBGC, contentViewBGC: contentViewBGC)
         }
     }
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -23,7 +23,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnAction() {
-        
+        bannerView.pageVC.forwardPage()
+    }
+    
+    @IBAction func btnAction2() {
+        bannerView.pageVC.backwardPage()
     }
 
 }

@@ -41,6 +41,36 @@ public class PageSlideViewController: UIPageViewController {
         vc.index = index
         return vc
     }
+    
+    public func forwardPage() {
+        print("currentIndex = \(currentIndex)")
+        print("images.count - 1 = \(images.count - 1)")
+        guard  currentIndex < (images.count - 1) else {
+            currentIndex = 0
+            if let nextViewController = contentViewController(at: 0) {
+                setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
+            }
+            return
+        }
+        currentIndex += 1
+        if let nextViewController = contentViewController(at: currentIndex) {
+            setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
+        }
+    }
+    
+    public func backwardPage() {
+        guard  currentIndex > 0 else {
+            currentIndex = images.count - 1
+            if let nextViewController = contentViewController(at: currentIndex) {
+               setViewControllers([nextViewController], direction: .reverse, animated: true, completion: nil)
+            }
+            return
+        }
+        currentIndex -= 1
+        if let nextViewController = contentViewController(at: currentIndex) {
+            setViewControllers([nextViewController], direction: .reverse, animated: true, completion: nil)
+        }
+    }
 
     
 }
