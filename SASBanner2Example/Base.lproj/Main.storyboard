@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SASBanner2Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHb-3c-qu9" customClass="ScrollViewBlock" customModule="SASBanner2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="237"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="237" id="C7v-Cb-1ga"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMD-MZ-Y7b">
+                                <rect key="frame" x="138" y="405.5" width="138" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="SJp-dM-edw"/>
+                                    <constraint firstAttribute="width" constant="138" id="rKm-FZ-Mhg"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="G9k-TO-Y5h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mMD-MZ-Y7b" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0S0-Dc-im5"/>
+                            <constraint firstItem="mMD-MZ-Y7b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GAL-B6-q5A"/>
+                            <constraint firstItem="aHb-3c-qu9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GY9-l6-LQe"/>
+                            <constraint firstItem="aHb-3c-qu9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j3Q-oF-ghb"/>
+                            <constraint firstItem="aHb-3c-qu9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uAU-PW-b6L"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="bannerView" destination="aHb-3c-qu9" id="bfi-kV-Z0V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="98.4375"/>
+        </scene>
+    </scenes>
+</document>
