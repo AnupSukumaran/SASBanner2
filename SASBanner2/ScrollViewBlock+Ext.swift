@@ -51,8 +51,8 @@ extension ScrollViewBlock: UIScrollViewDelegate {
         baseVC.addChild(pageVC)
         pageVC.view.frame = bounds
         contentView!.addSubview(pageVC.view)
-        
         pageVC.didMove(toParent: baseVC)
+        
         self.pageVC = pageVC
     }
     

@@ -21,10 +21,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnAction() {
+        bannerView.stopAutoScroll()
         bannerView.pageVC.forwardPage()
     }
     
     @IBAction func btnAction2() {
+        bannerView.startAutoScroll()
         bannerView.pageVC.backwardPage()
     }
 
